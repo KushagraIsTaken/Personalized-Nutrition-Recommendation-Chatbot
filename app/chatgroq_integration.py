@@ -19,7 +19,7 @@ def chat_woth_groq(user_input, conversation_history, state, user_category, promp
             f"Answer like a chatbot short and crisp, make the chatbot an interactive experience use emojis and stuff. Add humour too."
         )
         
-        messages = [{"role": "system", "content": contect}]
+        messages = [{"role": "system", "content": context}]
         
         for message in conversation_history:
             messages.append(message)
@@ -28,7 +28,7 @@ def chat_woth_groq(user_input, conversation_history, state, user_category, promp
 
         chat_completion = client.chat.completions.create(
             messages=messages,
-            model="gemma2-9b-it"
+            model="gemma2-9b-it",
         )
         
         return chat_completion.choices[0].message.content
