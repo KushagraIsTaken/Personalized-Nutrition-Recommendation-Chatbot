@@ -6,4 +6,4 @@ def load_data(file_path: str) -> pd.DataFrame:
 
 def preprocess_nutrition_data(data: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the nutritional dataset."""
-    return data.dropna().reset_index()
+    return data.dropna().reset_index(drop=True)
