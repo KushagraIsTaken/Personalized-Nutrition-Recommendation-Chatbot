@@ -44,6 +44,8 @@ def send_message():
     conversation_history.append({"role": "user", "content": user_input})
 
     response = chat_with_groq(user_input, conversation_history)
+    
+    conversation_history.append({"role": "assistant", "content": response})
 
     return jsonify({'response': response})
 
