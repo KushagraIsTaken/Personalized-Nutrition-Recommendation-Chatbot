@@ -1,4 +1,3 @@
-
 import streamlit as st
 import sys
 import os
@@ -37,7 +36,7 @@ state = st.sidebar.selectbox("Select your state:", [
     "Washington", "West Virginia", "Wisconsin", "Wyoming"
 ])
 
-analysis_method = st.sidebar.selectbox("Select analysis method:", ["Logistic", "SVM", "KNN"])
+analysis_method = st.sidebar.selectbox("Select analysis method:", ["logistic", "svm", "knn"])
 
 # Chat interface
 if 'messages' not in st.session_state:
@@ -62,11 +61,10 @@ if prompt := st.chat_input("What is your question?"):
     nutritional_prompt = generate_prompt(user_category, nutrition_data)
 
     # Get response from ChatGroq with context
-    response = chat_with_groq(prompt, st.session_state.messages, state, user_category, nutritional_prompt, analysis_method)
+    response = chat_with_groq(prompt, st.session_state.messages, state, user_category, nutritional_prompt)
     st.write(f"Analysis Method: {analysis_method}")
 
     # Append chatbot response to conversation history
     st.session_state.messages.append({"role": "assistant", "content": response})
     with st.chat_message("assistant"):
         st.markdown(response)
-

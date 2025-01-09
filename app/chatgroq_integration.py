@@ -9,7 +9,7 @@ client = Groq(api_key="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"
 
 
 
-def chat_with_groq(user_input, conversation_history, state, user_category, prompt, analysis_method):
+def chat_with_groq(user_input, conversation_history, state, user_category, prompt):
     """Send a message to the Groq API and receive a response."""
     try:
         # Prepare the context for the chatbot
