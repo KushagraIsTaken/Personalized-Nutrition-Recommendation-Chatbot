@@ -75,7 +75,7 @@ from app.chatgroq_integration import chat_with_groq
 income_data = load_data("data/PerCapita.csv")
 nutrition_data = preprocess_nutrition_data(load_data("data/NutritionDatabase.csv"))
 
-conversation_history = [{"role": "system", "content": "You are a healthcare chatbot."}]
+conversation_history = [{"role": "system", "content": "You are a healthcare chatbot providing personalized nutritional advice."}]
 
 st.set_page_config(page_title="Healthcare Chatbot", page_icon="🤖")
 st.title("Healthcare Chatbot 🤖")
@@ -110,7 +110,7 @@ if prompt := st.chat_input("What is your question?"):
 
     nutritional_prompt = generate_prompt(user_category, nutrition_data)
 
-    response = chat_with_groq(prompt, st.session_state.messages, state, nutritional_prompt)
+    response = chat_with_groq(prompt, st.session_state.messages, state, user_category, nutritional_prompt)
 
     st.session_state.messages.append({"role": "assistant", "content": response})
     with st.chat_message("assistant"):
