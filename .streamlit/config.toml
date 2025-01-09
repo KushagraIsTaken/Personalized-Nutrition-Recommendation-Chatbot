@@ -1,0 +1,7 @@
+[theme]
+primaryColor = "#8e44ad"  # Neon purple
+backgroundColor = "#1e1e2e"  # Dark purplish-blue
+secondaryBackgroundColor = "#252641"  # Slightly lighter purplish-blue
+textColor = "#e1e1ff"  # Soft neon white
+font = "sans serif"  # Keeps it modern and clean
+
